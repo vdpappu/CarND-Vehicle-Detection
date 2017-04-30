@@ -23,7 +23,7 @@ The code for HOG feature exploration can be found in 00_FeatureEngineering_SVMCl
   * cells_per_block
  * Sample HOG features are shown below
  <<<INSERT IMAGE HERE>>>
-Up on experimentation, hog features across YUV channels with orientations = 8, pixels_per_cell = 8 & cells_per_block = 2 gave 
+Up on experimentation, hog features across YUV channels with orientations = 8, pixels_per_cell = 8 and cells_per_block = 2 gave 
 good accuracy with SVM classifier built for pipeline
 
 <h4>Describe how (and identify where in your code) you trained a classifier using your selected HOG features 
@@ -40,3 +40,12 @@ The code for classifier can be found in 00_FeatureEngineering_SVMClassifier.ipyn
    * The data provided was shuffled and random split of 80-20 is chosen for train and test
    * An SVM classifier was trained with linear kernel and c=0.1 
    * Accuracy on test set with above features and model hyper-parameters - 99.2%
+
+<h4>Describe how (and identify where in your code) you implemented a sliding window search. How did you decide what scales to search and how much to overlap windows? </h4>
+
+In order to be able to find the vehicles in image/video frame, a sliding window approach has been used. Code for sliding window approach with varying search window sizes can be found in 01_SVMClassifier_Pipeline.ipynb cell-2
+* An approximate size of the car is calculated across various positions in the image (along y-axis) and depending on the position of the sliding window search, corresponding window size was used
+* Several overlap values are experimented and value of 0.85 was finally chosen
+* Sample image of sliding window 
+
+
