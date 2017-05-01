@@ -1,5 +1,14 @@
 <h2>Vehicle Detection</h2>
 
+[//]: # (Image References)
+
+[image1]: ./images/00_HOG_Features.png
+[image2]: ./images/01_HOG_Features.png
+[image3]: ./images/02_Sliding_Windows.png
+[image4]: ./images/03_Pipeline.png
+[image5]: ./images/04_Pipeline.png
+
+
 The goals / steps of this project are the following:
 
 * Use HOG features to build a vehicle detection algorithm using SVM
@@ -22,7 +31,7 @@ The code for HOG feature exploration can be found in 00_FeatureEngineering_SVMCl
   * pixels_per_cell
   * cells_per_block
  * Sample HOG features are shown below
- <<<INSERT IMAGE HERE>>>
+ ![alt text][image1] ![alt text][image2]
 Up on experimentation, hog features across YUV channels with orientations = 8, pixels_per_cell = 8 and cells_per_block = 2 gave 
 good accuracy with SVM classifier built for pipeline
 
@@ -48,11 +57,14 @@ In order to be able to find the vehicles in image/video frame, a sliding window 
 * Several overlap values are experimented and value of 0.85 was finally chosen
 * Sample image of sliding window 
 
+![alt text][image3]
+
 <h4>Show some examples of test images to demonstrate how your pipeline is working. How did you optimize the performance of your classifier?</h4>
 
 Following images shows the aggregated sliding window results(pipeline) of the test frames. 
 
-<<<insert images here>>>
+![alt text][image4]![alt text][image5]
+
 
 In order to improve the accuracy of classifier, following experments were done:
   * Various features were tried and experimented. Finally the HOG features on YUV color spaces are chosen for pipeline. Experiments can be found in 00_FeatureEngineering_SVMClassifier.ipynb and the final pipeline can be found in 01_SVMClassifier_Pipeline.ipynb
