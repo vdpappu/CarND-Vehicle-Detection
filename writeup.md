@@ -73,7 +73,7 @@ In order to improve the accuracy of classifier, following experments were done:
 
 <h4>Provide a link to your final video output. Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)</h4>
 
-The video can be found in following link. <<INSERT LINK HERE>>
+The video can be found in following link. https://youtu.be/vdr2eAvVAns
 
 <h4>Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.</h4>
 
