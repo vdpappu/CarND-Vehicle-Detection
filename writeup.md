@@ -48,4 +48,30 @@ In order to be able to find the vehicles in image/video frame, a sliding window 
 * Several overlap values are experimented and value of 0.85 was finally chosen
 * Sample image of sliding window 
 
+<h4>Show some examples of test images to demonstrate how your pipeline is working. How did you optimize the performance of your classifier?</h4>
 
+Following images shows the aggregated sliding window results(pipeline) of the test frames. 
+
+<<<insert images here>>>
+
+In order to improve the accuracy of classifier, following experments were done:
+  * Various features were tried and experimented. Finally the HOG features on YUV color spaces are chosen for pipeline. Experiments can be found in 00_FeatureEngineering_SVMClassifier.ipynb and the final pipeline can be found in 01_SVMClassifier_Pipeline.ipynb
+  * The hyper parameters for HOG feature extraction are experimented and tuned to work in the pipeline
+  * SVM parameter tuning has no appearent impact on the model behavior
+
+<h4>Provide a link to your final video output. Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)</h4>
+
+The video can be found in following link. <<INSERT LINK HERE>>
+
+<h4>Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.</h4>
+
+* <b>False positives</b> are handled using the heatmap approach. The code for the approach is present in 01_SVMClassifier_Pipeline.ipynb cell-2. add_heat() and apply_threshold() methods are used for the same.
+* The methods are written to find the accumulated detections with in a region and shed the random detections 
+*<b>Overlapping bounding boxes</b> are aggregated using the draw_labeled_bboxes_vid() method that takes group of overlapping bounding boxes and draws aggregated bounding box that cover all boxes within
+
+<h4>Briefly discuss any problems / issues you faced in your implementation of this project. Where will your pipeline likely fail? What could you do to make it more robust?</h4>
+
+Despite the pipeline working well with acceptable false positives and near zero misses in detecting vehicles, I see following limitations:
+  * The pipeline is not tested in varying climate conditions. The pipeline may not be effective if the visibility if low
+  * A deep learning approach can make the pipeline more robust. The extracted features may not cover all the aspects of the vehicle. 
+  * The sliding window approach is brute-force. A sophisticated approaches like edge boxes can help to scale the model
